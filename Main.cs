@@ -12,25 +12,26 @@ namespace FarmerJob
     public static class Main
     {
         // Settings
-        public const float MaxDistanceToOtherPlants = 1.5f; // Max Distance to other plants.
+        public const float MaxDistanceToOtherPlants = 2f; // Max Distance to other plants.
         
         // Variables
         public static readonly List<SeedAreaModel> CurrentSeedAreas = new List<SeedAreaModel>();
         public static readonly List<PlantModel> CurrentPlants = new List<PlantModel>();
-        
-        
+
         // Creates our plant .. should be understandable..
         // in that case.. we make debug : 
         private static int _plantId = 0;
-        public static void CreatePlant(FarmerPlayer player)
+        public static void CreatePlant(FarmerPlayer player, SeedAreaModel seedArea)
         {
             try
             {
+                string name = player?.Name;
                 // Get LastInsertedId from Database - need Db Add..
                 PlantModel plant = new PlantModel
                 {
-                    Id = _plantId, Position = player.Position, Created = DateTime.Now, GrowState = 0, Text = "Plant[" + _plantId+"]\n"+ 0 +" %"
+                    Id = _plantId, Hash = (uint)seedArea.Types, Position = seedArea.Position, Rotation = seedArea.Rotation, Created = DateTime.Now, GrowState = 0, Text = seedArea.Types + "\n Owner : " + name + "\n[" + _plantId+"]\n"+ 0 +" %"
                 };
+                seedArea.InUse = true;
                 CurrentPlants.Add(plant);
                 _plantId++;
                 // Force plant sync update.

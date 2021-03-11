@@ -19,6 +19,7 @@ namespace FarmerJob
             // Standard : 60sek.
             _growingTimer = new Timer(Sync.OnGrowingTimerCall, null, 60 * 1000, 60 * 1000);
             _onUpdate = new Timer(Sync.OnUpdate, null, 50, 50);
+            Constants.OnResourceStart();
         }
         // On Resource-Stop
         public override void OnStop() { }

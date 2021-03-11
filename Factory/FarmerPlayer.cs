@@ -12,6 +12,8 @@ using System;
  
          public readonly List<PlantModel> NearbyPlants = new List<PlantModel>();
          public int Seeds { get; set; }
+         public IVehicle FarmerVehicle { get; set; }
+         public IVehicle FarmerTrailer { get; set; }
          public void SyncNearbyPlants(PlantModel plant)
          {
              PlantModel localPlant = this.NearbyPlants.FirstOrDefault(x => x.Id == plant.Id);

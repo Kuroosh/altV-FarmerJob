@@ -13,7 +13,7 @@ namespace FarmerJob
     public static class Sync
     {
         // Settings : 
-        private const int MaxDistance = 30;
+        private const int MaxDistance = 300;
         private const int SyncTickObj = 5;           // Time in MS for updating nearby objects.
         
         // Variables : 
@@ -24,7 +24,7 @@ namespace FarmerJob
         {
             try
             {
-                player.EmitLocked("Farmer:CreateObj", plant.Id, plant.Position, plant.Text, plant.GrowState);
+                player.EmitLocked("Farmer:CreateObj", plant.Id, plant.Hash, plant.Position, plant.Rotation, plant.Text, plant.GrowState);
             }
             catch
             {

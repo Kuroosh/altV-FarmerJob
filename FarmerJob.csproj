@@ -10,6 +10,7 @@
       <PackageReference Include="AltV.Net" Version="2.0.0" />
       <PackageReference Include="AltV.Net.Async" Version="2.0.0" />
       <PackageReference Include="AltV.Net.Resources.Chat.Api" Version="1.48.0" />
+      <PackageReference Include="Newtonsoft.Json" Version="13.0.1-beta1" />
     </ItemGroup>
 
 </Project>
